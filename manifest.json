@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+  "name": "Tricky Code",
+  "version": "0.1",
+  "description": "Edite código no seu facebook!",
+  "icons": {
+    "128": "128.png"
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "http://*/*",
+    "https://*/*",
+    "declarativeContent"
+  ],
+  "browser_action": {
+    "default_popup": "tricky.html"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "codemirror/lib/codemirror.js",
+        "tricky.js"
+      ],
+      "css": [
+        "tricky.css",
+        "codemirror/lib/codemirror.css"
+      ],
+      "matches": [
+        "https://*.facebook.com/*"
+      ],
+      "run_at": "document_end",
+      "persistent": false
+    }
+  ]
+}
